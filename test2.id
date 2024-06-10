@@ -1,0 +1,4 @@
+ing items fluids := ingWithFluids (ingWithItems (emptyIng) (items)) (fluids);
+
+ing (emptyList) (chlorineList);
+ing (emptyList) (antimonyList);

@@ -1,0 +1,13 @@
+U := pipe2 (apply) (id) (apply);
+T := U (pipe (U) (flip (pipe2 (apply)) (apply)));
+
+largest := reduce1 (max);
+
+largestItemsPredicate := pipe (pipe (pipe (map (itemSize)) (largest)) (equals)) (pipe (itemSize));
+largestItems := pipe2 (largestItemsPredicate) (id) (filter);
+notLargestItems := pipe2 (pipe (largestItemsPredicate) (negation)) (id) (filter);
+
+S := pipe (pipe (pipe (pipe (notLargestItems)) (flip (pipe2 (largestItems)) (concat))) (flip (pipe2 (nEmpty)) (choice))) (pipe2 (id) (id));
+sortItemsBySizeDescending := T (S);
+
+maxy x := \y:max (x) (y);
