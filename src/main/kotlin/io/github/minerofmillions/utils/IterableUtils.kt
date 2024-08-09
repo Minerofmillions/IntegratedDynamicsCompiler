@@ -1,4 +1,4 @@
-package io.github.minerofmillions.id_compiler
+package io.github.minerofmillions.utils
 
 fun <T> Sequence<T>.filterWithNext(predicate: (T, next: T) -> Boolean): Sequence<T> = sequence {
     var lagger: T = firstOrNull() ?: return@sequence

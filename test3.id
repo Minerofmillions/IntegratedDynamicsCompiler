@@ -1,0 +1,1 @@
+itemVeryDamaged threshold item := GreaterThan (Multiplication (threshold) (ItemDamage (item))) (Multiplication (Decrement (threshold)) (MaxDamage (item)));

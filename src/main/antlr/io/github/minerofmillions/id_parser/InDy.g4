@@ -6,13 +6,15 @@ package io.github.minerofmillions.id_parser;
 LPAREN : '(' ;
 RPAREN : ')' ;
 DEFINES : ':=' ;
-LAMBDA : '\\';
+LAMBDA : '\\' ;
 COLON : ':' ;
 NEWLINE : '\n' ;
 SEMI : ';' ;
+LBRACKET : '[' ;
+RBRACKET : ']' ;
 
-ID: [a-zA-Z_][a-zA-Z_0-9]* ;
 WS: [ \t\n\r\f]+ -> skip ;
+ID: ([a-zA-Z0-9_-]|LBRACKET|RBRACKET)+ ;
 
 program : line* EOF ;
 
@@ -21,7 +23,7 @@ line
     | asgn SEMI
     ;
 
-asgn : ID ID* ':=' expr ;
+asgn : ID+ ':=' expr ;
 
 expr
     : ID
